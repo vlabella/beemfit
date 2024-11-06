@@ -1,6 +1,6 @@
 # beemfit
 
-Beemfit is a fitting routine for spectra measured with ballistic electron emission microscopy (BEEM), which detemines the Schottky barrier height of a metal-semiconductor interface.  It linearizes the data and searches over all possible fits to find the best fit.  It outputs the Schottky barrier height in eV and amplitude of the spectra, as well as the linearization parameters.
+Beemfit is a fitting routine for spectra measured with ballistic electron emission microscopy (BEEM), which determines the Schottky barrier height of a metal-semiconductor interface.  It linearizes the data and searches over all possible fits to find the best fit.  It outputs the Schottky barrier height in eV and amplitude of the spectra, as well as the linearization parameters.
 
 
 ## Usage
@@ -32,7 +32,7 @@ To fit this data type:
 ```
 beemfit --input_filename=data.csv
 ```
-The output will appear 
+The output will appear
 ```
 beemfit v 1.1.0 BEEM Spectroscopy Fitter
 Copyright (C) V.P. LaBella 2007-2024 [Nov 4 2024 15:49:43]
@@ -63,8 +63,8 @@ Fit Filename         :  FBEEM_spectra_fit.dat
 Fit Param. Filename  :  FBEEM_spectra_parameters.dat
 ```
 
-Two additional files will be created, one with the original data and corresponding fit and another with the parameters of the fit, that is displayed on the screen.  Several other options are availible and can be seen with the `--help` command.
+Two additional files will be created, one with the original data and corresponding fit and another with the parameters of the fit, that is displayed on the screen.  Several other options are available and can be seen with the `--help` command.
 
 # Acknowledgment
 
-If you utilize this routine in your presentations or publications I would appreaciate a mention of beemfit in the aacknoledgements.  This routing was delveoped over several years and fitting hundreds of thousands of BEEM spectra taken be nuermous hard working graduate students.  The orginal linearization algorithm was first implemneted by Robert Balsano and utilized in the following publication: Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy, Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.  The algorithm in its current form has been modified and improved upon since that time and has been used to fit spectra from numerous different M/S interfaces.
+If you utilize this routine in your presentations or publications I would appreciate a mention of beemfit in the acknowledgements.  This routing was developed over several years and fitting hundreds of thousands of BEEM spectra taken be nuermous hard working graduate students.  The original linearization algorithm was first implemented by Robert Balsano and utilized in the following publication: Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy, Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.  The algorithm in its current form has been modified and improved upon since that time and has been used to fit spectra from numerous different M/S interfaces.
