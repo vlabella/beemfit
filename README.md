@@ -5,7 +5,7 @@ Beemfit is a fitting routine for spectra measured with ballistic electron emissi
 
 ## Usage
 
-beemfit is a CLI application and is run from the command line.  The file with the data `data.csv` should be in a two column CSV format (tip bias V , BEEM current in pA), where blank lines and lines that begin with '#' are ignored.  For example:
+beemfit is run from the command line.  The file with the data `data.csv` should be in a two column CSV format (tip bias V , BEEM current in pA), where blank lines and lines that begin with '#' are ignored.  For example:
 
 ```
 # my BEEM data
@@ -67,5 +67,5 @@ Two additional files will be created, one with the original data and correspondi
 
 # Acknowledgment
 
-IF you utilize this routine in your presentations or publications I would appreaciate a mention of beem fit in the aacknoledgements.  This routing was delveoped over several years and fitting hundreds of thousands of BEEM spectra taken be nuermous hard working graduate students.  The orginal algorithm was first implemneted by Robert Balsano and utilized in this publication. Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy,
+If you utilize this routine in your presentations or publications I would appreaciate a mention of beem fit in the aacknoledgements.  This routing was delveoped over several years and fitting hundreds of thousands of BEEM spectra taken be nuermous hard working graduate students.  The orginal algorithm was first implemneted by Robert Balsano and utilized in this publication. Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy,
 Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.
