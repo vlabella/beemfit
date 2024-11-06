@@ -5,7 +5,7 @@ Beemfit is a fitting routine for spectra measured with ballistic electron emissi
 
 ## Usage
 
-beemfit is a CLI application and is run from teh command line.  The file with the data should be in a two column CSV format (tip bias V , BEEM current in pA), where blank lines and lines that being with '#' are ignored.  For example:
+beemfit is a CLI application and is run from the command line.  The file with the data `data.csv` should be in a two column CSV format (tip bias V , BEEM current in pA), where blank lines and lines that begin with '#' are ignored.  For example:
 
 ```
 # my BEEM data
@@ -26,7 +26,46 @@ beemfit is a CLI application and is run from teh command line.  The file with th
 -0.86,0.002,0
 -0.865,0.0045,0
 -0.87,0.008,0
-
-
 ```
 
+To fit this data type:
+```
+beemfit --input_filename=data.csv
+```
+The output will appear 
+```
+beemfit v 1.1.0 BEEM Spectroscopy Fitter
+Copyright (C) V.P. LaBella 2007-2024 [Nov 4 2024 15:49:43]
+Filename             :  FBEEM_spectra.dat
+BEEM Type            :  Forward BEEM
+Points               :  200
+*** Fit Found ***
+Schottky             :  0.85 eV
+n (power)            :  2
+R_squared            :  1
+R_squared_full       :  1
+amplitude            :  20
+b                    :  -3.80132
+b_error              :  1.72718e-15
+b_fractional_error   :  4.54364e-16
+m                    :  -4.47214
+m_error              :  1.81951e-15
+m_fractional_error   :  4.06855e-16
+Fit Start Bias       :  -0.85 V
+Window Size          :  0.2 V
+Lin Start Bias       :  -0.655 V
+Lin Start Current    :  0 pA
+Lin Start Sep        :  0.195 V
+Schottky Sep         :  0 V
+Max Lin Start Sep    :  0.2 V
+Max Schottky Sep     :  0.15 V
+Fit Filename         :  FBEEM_spectra_fit.dat
+Fit Param. Filename  :  FBEEM_spectra_parameters.dat
+```
+
+Two additional files will be created, one with the original data and corresponding fit and another with the parameters of the fit, that is displayed on the screen.  Several other options are availible and can be seen with the `--help` command.
+
+# Acknowledgment
+
+IF you utilize this routine in your presentations or publications I would appreaciate a mention of beem fit in the aacknoledgements.  This routing was delveoped over several years and fitting hundreds of thousands of BEEM spectra taken be nuermous hard working graduate students.  The orginal algorithm was first implemneted by Robert Balsano and utilized in this publication. Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy,
+Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.
