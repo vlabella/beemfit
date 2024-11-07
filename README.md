@@ -112,9 +112,11 @@ I_{BEEM} = A (V_{tip} - \phi_b)^n ,
 $$
 
 where $I_{BEEM}$ is the BEEM current, $V_{tip}$ is the tip bias,  $A$ is the amplitude, $\phi_b$ is the barrier height, and $n$ is an exponent, typically 2 or 5/2.   The equation is linearized by raising both sides to the ${1 \over n}$ power are rewriting in $y=mx+b$ form
+
 $$
  \sqrt[n]{I_{BEEM}} = \sqrt[n]{A} V_{tip} - \sqrt[n]{A}\phi_b,
 $$
+
 where $y=\sqrt[n]{I_{BEEM}}$ and $x=V_{tip}$.  Linear regression is then utilized to compute the offset $b$, and slope $m$ from which the amplitude and barrier height can be calculated using $A=m^n$ and $\phi_b = {b \over m}$.
 
 
