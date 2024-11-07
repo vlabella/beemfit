@@ -122,6 +122,14 @@ where $y=\sqrt[n]{I_{BEEM}}$ and $x=V_{tip}$.  Linear regression is then utilize
 
 It first linearizes the data and then uses linear regression to obtain the best fit. A linearization starting point (tip bias) is first chosen.  The program then attempts all possible fits to the data for that linearization starting point.  It searches over all possible linearization starting points in the data.  In this way every possible fit is attempted and the best one is found based on the best R squared value.  In addition, these sanity checks are used: 1.) Schottky barrier height must not be too close to spectrum endpoints; 2.) Schottky barrier height must not be too far from linearization start.; 3.) Best linear fit must also be a best fit for the non-linearized data.
 
+## Example Fits
+
+Here is a fit to an artificially created BEEM spectra with a barrier height of 0.85 showing both the regular and linear fit.
+
+![beemfit example](docs/images/fbeem.png "beemfit example")
+
+![beemfit example linear fit](docs/images/fbeem_lin.png "beemfit example linear fit")
+
 # Acknowledgment
 
 If you utilize this routine in your presentations or publications I would appreciate a mention of beemfit in the acknowledgements.  This routing was developed over several years and fitting hundreds of thousands of BEEM spectra taken be numerous hard working graduate students.  The original linearization algorithm was first implemented by Robert Balsano and utilized in the following publication: Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy, Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.  The algorithm in its current form has been modified and improved upon since that time and has been used to fit spectra from numerous different M/S interfaces.
