@@ -106,9 +106,11 @@ Allowed Options:
 ## Fitting Routine
 
 The program fits the data to simplified Bell & Kaiser BEEM spectroscopy model.
+
 $$
 I_{BEEM} = A (V_{tip} - \phi_b)^n ,
 $$
+
 where $I_{BEEM}$ is the BEEM current, $V_{tip}$ is the tip bias,  $A$ is the amplitude, $\phi_b$ is the barrier height, and $n$ is an exponent, typically 2 or 5/2.   The equation is linearized by raising both sides to the ${1 \over n}$ power are rewriting in $y=mx+b$ form
 $$
  \sqrt[n]{I_{BEEM}} = \sqrt[n]{A} V_{tip} - \sqrt[n]{A}\phi_b,
