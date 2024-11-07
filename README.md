@@ -105,7 +105,7 @@ Allowed Options:
 
 ## Fitting Routine
 
-The program fits the data to simplified Bell & Kaiser BEEM spectroscopy model.  It first linearizes the data and then uses linear regression to obtain the best fit. A linearization starting point (tip bias) is first chosen.  The program then attempts all possible fits to the data for that linearization starting point.  It searches over all possible linearization starting points in the data.  In this way every possible fit is attempted and the best one is found base on the best R squared value.  In addition, these sanity checks are used: 1.) Schottky barrier height must not be too close to spectrum endpoints; 2.) Schottky barrier height must not be too far from linearization start.; 3.) Best linear fit must also be a best fit for the non-linearized data.
+The program fits the data to simplified Bell & Kaiser BEEM spectroscopy model.  It first linearizes the data and then uses linear regression to obtain the best fit. A linearization starting point (tip bias) is first chosen.  The program then attempts all possible fits to the data for that linearization starting point.  It searches over all possible linearization starting points in the data.  In this way every possible fit is attempted and the best one is found based on the best R squared value.  In addition, these sanity checks are used: 1.) Schottky barrier height must not be too close to spectrum endpoints; 2.) Schottky barrier height must not be too far from linearization start.; 3.) Best linear fit must also be a best fit for the non-linearized data.
 
 # Acknowledgment
 
