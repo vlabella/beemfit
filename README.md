@@ -62,7 +62,11 @@ Fit Filename         :  FBEEM_spectra_fit.dat
 Fit Param. Filename  :  FBEEM_spectra_parameters.dat
 ```
 
-Two additional files will be created, one with the original data and corresponding fit and another with the parameters of the fit, that is displayed on the screen.  Several other options are available and can be seen with the `--help` command shown below.
+Two additional files will be created, one with the original data and corresponding fit and another with the parameters of the fit, that is displayed on the screen.  
+
+## Options
+
+Several other options are available and can be seen with the `--help` command shown below.
 
 ```
 beemfit v 1.1.0 BEEM Spectroscopy Fitter
