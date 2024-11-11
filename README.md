@@ -105,13 +105,14 @@ Allowed Options:
 
 ## Fitting Routine
 
-The program fits the data to simplified Bell & Kaiser BEEM spectroscopy model.
+
+The program fits the data to simplified Bell & Kaiser BEEM spectroscopy model [1].
 
 $$
 I_{BEEM} = A (V_{tip} - \phi_b)^n ,
 $$
 
-where $I_{BEEM}$ is the BEEM current, $V_{tip}$ is the tip bias,  $A$ is the amplitude, $\phi_b$ is the barrier height, and $n$ is an exponent, typically 2 or 5/2.   The equation is linearized by raising both sides to the ${1 \over n}$ power are rewriting in $y=mx+b$ form
+where $I_{BEEM}$ is the BEEM current, $V_{tip}$ is the tip bias, $A$ is the amplitude, $\phi_b$ is the barrier height, and $n$ is an exponent, typically 2 or 5/2. The equation is linearized by raising both sides to the ${1 \over n}$ power are rewriting in $y=mx+b$ form
 
 $$
  \sqrt[n]{I_{BEEM}} = \sqrt[n]{A} V_{tip} - \sqrt[n]{A}\phi_b,
@@ -126,10 +127,33 @@ It first linearizes the data and then uses linear regression to obtain the best 
 
 Here is a fit to an artificially created BEEM spectra with a barrier height of 0.85 showing both the regular and linear fit.
 
-![beemfit example](docs/images/fbeem.png "beemfit example")
+ ![beemfit example](docs/images/fbeem.png "beemfit example")  ![beemfit example linear fit](docs/images/fbeem_lin.png "beemfit example linear fit") 
 
-![beemfit example linear fit](docs/images/fbeem_lin.png "beemfit example linear fit")
+## BEEM Type
+
+The fitting program automatically detects the type of BEEM spectra based on the sign of the tip bias and BEEM current.  It assumes that the tip is biased with respect to the sample and the BEEM current is measured from the contact to the semiconductor.  Forward BEEM or FBEEM is performed on a metal / n-type semiconductor interface, where the tip bias is negative and the BEEM current is positive.  Reverse BEEM or RBEEM is performed on a metal / n-type semiconductor interface, where the tip bias is positive and the BEEM current is positive. Forward BHEM (ballistic hole emission microscopy) or FBHEM is performed on a metal / p-type semiconductor interface, where the tip bias is positive and the BEEM current is negative.  Reverse BHEM or RBHEM is performed on a metal / p-type semiconductor interface, where the tip bias is negative and the BEEM current is negative.  The table below summarizes them
+
+|  BEEM TYPE  | Semiconductor | Tip Bias  | BEEM Current | Comments |
+|--------------|-----------|------------|--|--|
+|   FBEEM | n-type | Negative | Positive | |
+|   RBEEM | n-type | Positive | Positive | BEEM current is usually 10x smaller than FBEEM |
+|   FBHEM | p-type | Positive | Negative | |
+|   RBHEM | p-type | Negative | Negative | BEEM current is usually 10x smaller than FBHEM |
+
+## Fit Anatomy
+
+The are several parameters, besides the Schottky barrier height, amplitude, and R^2 value that the program computes.  The figure below shows the anatomy of a fit with the parameters labeled, where $\phi_t$ is the barrier height or spectra threshold.  This type of fit occurs when there is a deviation in the current from the ideal behavior near the threshold.  One of the most common reasons for the deviation is averaging multiple spectra from different tip positions that may have different barrier heights arising from naturally occurring inhomogeneity at the interface.
+
+Ideally, the linearization start bias (LSB), fit start bias (FSB) and threshold $\phi_t$ should all be the same.  This is not always the case for measured spectra.  The LSB is where the program starts linearizing the data.  The FSB is where the linear regression starts.  The extrapolation region is the region from the LSB to the threshold.  The program is set to allow a maximum extrapolation region of 0.15 eV and is adjustable with `--max_schottky_start_fit_start_separation` program option.  The maximum energy between the LSB and FSB is set to 0.2 eV and adjustable with the `--max_lin_start_fit_start_separation`.  It may be tempting to set both these to 0, however giving the routine some room allows it to fit spectra that may not be ideal, capturing the true threshold of the spectra.  Non ideal spectra can occur due to numerous reasons such as inhomogeneities, noise, hot electron scattering, etc. and may be a sign that something interesting or detrimental is occurring at the interface or in the measurement.
+
+![fit anatomy](docs/images/BEEMfit_anatomy.png "beemfit anatomy")
 
 # Acknowledgment
 
-If you utilize this routine in your presentations or publications I would appreciate a mention of beemfit in the acknowledgements.  This routing was developed over several years and fitting hundreds of thousands of BEEM spectra taken be numerous hard working graduate students.  The original linearization algorithm was first implemented by Robert Balsano and utilized in the following publication: Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy, Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: 10.1063/1.4831756.  The algorithm in its current form has been modified and improved upon since that time and has been used to fit spectra from numerous different M/S interfaces.
+If you utilize this routine in your presentations or publications I would appreciate a mention of beemfit in the acknowledgements.  This routing was developed over several years and fitting hundreds of thousands of BEEM spectra taken be numerous hard working graduate students.  The original linearization algorithm was first implemented by Robert Balsano [2]. The algorithm in its current form has been modified and improved upon since that time and has been used to fit spectra from numerous different M/S interfaces.
+
+# References
+
+[1] L. D. Bell and W. J. Kaiser, Phys. Rev. Lett. 61, 2368 (1988). https://doi.org/10.1103/PhysRevLett.61.2368
+
+[2] Schottky barrier height measurements of Cu/Si(001), Ag/Si(001), and Au/Si(001) interfaces utilizing ballistic electron emission microscopy and ballistic hole emission microscopy, Robert Balsano, Akitomo Matsubayashi, Vincent P. LaBella, AIP Advances, 3 112110 (2013). DOI: https://doi.org/10.1063/1.4831756
